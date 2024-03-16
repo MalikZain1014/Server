@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const taskRoutes = require("./Routes/taskRoute");
 const userRoutes = require("./Routes/userRoute");
-//const CourseRoutes = require("./Routes/CourseRoute");
+const TrainerRoutes = require("./Routes/TrainerRoute");
 const dietRoutes = require("./Routes/DietRoute");
 const exerciseRoutes = require("./Routes/ExerciseRoute");
 
@@ -37,7 +37,7 @@ app.use(express.json());
 
 app.use("/tasks", taskRoutes);
 app.use("/", userRoutes);
-//app.use("/", CourseRoutes);
+app.use("/", TrainerRoutes);
 app.use("/", userRoutes);
 app.use("/", dietRoutes);
 app.use("/", exerciseRoutes);

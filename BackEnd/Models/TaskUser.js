@@ -1,5 +1,4 @@
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const taskUserSchema = new mongoose.Schema({
   task_id: { type: Number, required: true },
@@ -7,6 +6,6 @@ const taskUserSchema = new mongoose.Schema({
   assigned_date: { type: Number, required: true },
 });
 
-const TaskUser = mongoose.model('TaskUser', taskUserSchema);
+const TaskUser = mongoose.model("TaskUser", taskUserSchema);
 
 module.exports = TaskUser;

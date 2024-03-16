@@ -31,41 +31,39 @@ const mongoose = require("mongoose");
 // });
 // const upload = multer({ storage });
 
-const TrainerSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-      minlength: 3,
-      maxlength: 20,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-      lowercase: true,
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 6,
-    },
-    age: {
-      type: integer,
-      required: true,
-    },
-    experience: {
-      type: float,
-      required: true,
-    },
-    dateJoined: {
-      type: Date,
-      default: Date.now,
-    },
- 
-  });
+const TrainerSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+    maxlength: 20,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6,
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  experience: {
+    type: String,
+    required: true,
+  },
+  dateJoined: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
 const Trainer = mongoose.model("Trainer", TrainerSchema);
 
