@@ -30,29 +30,35 @@ router.post("/login", async (req, res) => {
     res.status(200).json({
       user: {
         _id: user._id,
-        name: user.name,
+        firstname: user.firstname,
+        lastname: user.lastname,
         email: user.email,
-        bio: user.bio,
+        age: user.age,
+        height: user.height,
+        weight: user.weight,
+        targetweight: user.targetweight,
+
         dateJoined: user.dateJoined,
-        course: user.courses,
+        // Assuming you have a field named 'courses' in your user model
       },
-      authorization: { token: token, type: "barear" },
+      authorization: { token: token, type: "bearer" }, // Corrected 'barear' to 'bearer'
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to login" });
   }
 });
+
 router.post("/logout", async (req, res) => {
   try {
-    // Clear cookie
-    res.clearCookie("loggedIn");
+    // No need to clear cookie for JWT token
     res.status(200).json({ message: "Logout successful" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to logout" });
   }
 });
+
 router.get("/user", async (req, res) => {
   try {
     const users = await User.find();
