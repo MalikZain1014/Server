@@ -41,6 +41,3 @@ app.use("/", TrainerRoutes);
 app.use("/", userRoutes);
 app.use("/", dietRoutes);
 app.use("/", exerciseRoutes);
-
-const adminRoutes = require("./Routes/adminRoute");
-app.use("/", adminRoutes);
